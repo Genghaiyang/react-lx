@@ -1,14 +1,7 @@
-@base: #f938ab;
+@base: #f5f5f5;
 
-.box-shadow(@style, @c) when (iscolor(@c)) {
-  -webkit-box-shadow: @style @c;
-  box-shadow:         @style @c;
+html,body{margin: 0; padding: 0; height: 100%; width: 100%;}
+body{
+  background:@base;
 }
-.box-shadow(@style, @alpha: 50%) when (isnumber(@alpha)) {
-  .box-shadow(@style, rgba(0, 0, 0, @alpha));
-}
-.box {
-  color: saturate(@base, 5%);
-  border-color: lighten(@base, 30%);
-  div { .box-shadow(0 0 5px, 30%) }
-}
+a{text-decoration: none;}
