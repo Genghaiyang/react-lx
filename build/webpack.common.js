@@ -5,7 +5,7 @@ const devMode = process.argv.indexOf('--mode=production') === -1;
 const MiniCssExtractPlugin = require("mini-css-extract-plugin")
 module.exports = {
     //mode:'development', // 开发模式
-    entry: ["@babel/polyfill",path.resolve(__dirname,'../src/main.js'),path.resolve(__dirname,'../src/utils/setRem.js')],    // 入口文件
+    
     output: {
         filename: '[name].[hash:8].js',      // 打包后的文件名称
         path: path.resolve(__dirname,'../dist')  // 打包后的目录
@@ -91,7 +91,8 @@ module.exports = {
                 use:{
                   loader:'babel-loader',
                   options:{
-                    presets:['@babel/preset-env','@babel/preset-react']
+                    presets:['@babel/preset-env','@babel/preset-react'],
+                    plugins: ["react-hot-loader/babel"]
                   }
                 },
                 exclude:/node_modules/

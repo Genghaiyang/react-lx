@@ -1,12 +1,10 @@
 import {createStore, combineReducers, applyMiddleware} from 'redux'
-const rootReducer = (state = [], action)=>{
-    switch (action.type) {
-        case 'ADD_TODO':
-          return {...state,...action.payload}
-          //return Object.assign({}, state, action.payload)
-        default:
-          return state
-      }
-}
+import appReducer from '../reducer/appReducer'
+import listReducer from '../reducer/listReducer'
+const rootReducer = combineReducers({
+  appReducer,
+  listReducer
+})
+
 const store = createStore(rootReducer)
 export default store
