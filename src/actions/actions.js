@@ -26,6 +26,10 @@ const actions = {
     PlusNumCount:id => ({
         type:'PLUS_NUM_COUNT',
         payload:id
+    }),
+    alertBox:pam => ({
+        type:'ALERT_BOX_ISSHOW',
+        payload:pam
     })
 }
 export default actions

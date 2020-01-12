@@ -5,8 +5,8 @@ const initState = {
       userTel:'12345678912'
     },
     //products:[],
-    ticket:{surl:'',name:''},
-    alertBox:false
+    ticket:{surl:'',name:'上传图片'},
+    alertBox:{title:'暂无提示',isshow:false}
 }
 
 const appReducer = (state = initState, action)=>{
@@ -34,6 +34,13 @@ const appReducer = (state = initState, action)=>{
             ticket:{surl:window.URL.createObjectURL(action.payload),name:action.payload.name}
           }
          }
+
+        case 'ALERT_BOX_ISSHOW':
+          return {...state,...{
+            alertBox:{title:action.payload.title,isshow:action.payload.isshow}
+          }
+         }
+
         default:
           return state
       }

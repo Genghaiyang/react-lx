@@ -4,7 +4,8 @@ const Webpack = require('webpack')
 const webpackConfig = require('./webpack.common.js')
 module.exports = WebpackMerge(webpackConfig,{
     mode:'development', // 开发模式
-    entry: ["@babel/polyfill",
+    entry: [
+    "@babel/polyfill",
     'react-hot-loader/patch',
     path.resolve(__dirname,'../src/main.js'),
     path.resolve(__dirname,'../src/utils/setRem.js'),

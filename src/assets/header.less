@@ -1,33 +1,74 @@
-@color:#975ec9;
-.head-bar{
-    width: 100%;
-    height: 1.2rem;
-    background:@color;
-    text-align: center;
-    line-height: 1rem;
-    span{
-        color: #fff;
-        font-size: 0.6rem;        
-    }
+@color: #975ec9;
+.head-bar {
+	width: 100%;
+	height: 1.2rem;
+	background: @color;
+	text-align: center;
+	line-height: 1rem;
+	span {
+		color: #fff;
+		font-size: 0.6rem;
+	}
 }
-.head-nav-btn{
-    display: inline-block;
-    width: 0.5rem;
-    height: 0.5rem;
-    background: #fff;
-    float: left;
-    margin: 0.35rem 0 0 0.5rem;
+.head-nav-btn {
+	display: block;
+	width: 0.5rem;
+	height: 0.5rem;
+	background: #fff;
+	float: left;
+	margin: 0.35rem 0 0 0.5rem;
 }
-.head-record-btn{
-    .head-nav-btn();
-    float: right;
-    background: rgb(77, 2, 2);
-    margin: 0.35rem 0.5rem 0 0;
+.head-record-btn {
+	.head-nav-btn();
+	float: right;
+	background: rgb(77, 2, 2);
+	margin: 0.35rem 0.5rem 0 0;
 }
-.head-ok-btn{
-    float: right;
-    line-height: 1.2rem;
-    font-size: 0.5rem;
-    color: #fff;
-    margin-right: 0.5rem;
+.head-ok-btn {
+	float: right;
+	line-height: 1.2rem;
+	font-size: 0.5rem;
+	color: #fff;
+	margin-right: 0.5rem;
+}
+.navPage{
+	width: 100%;
+	height: 100%;
+	background: #fff;
+	position: fixed;
+	left: -100%;
+	top: 1.2rem;
+	z-index: 999;
+	.link-line {
+		width: 89%;
+		height: 1.5rem;
+		border-bottom: 1px solid #ccc;
+		margin: 0 auto;
+		display: block;
+		text-align: left;
+		line-height: 1.5rem;
+		font-size: 0.4rem;
+		color: #333;
+		&:before {
+			float: right;
+			color: #666;
+			content: '>';
+			font-size: 0.6rem;
+		}
+	}
+}
+.navPage-show {
+	animation: navslide .3s linear forwards;
+}
+.navPage-hide {
+    left: 0;
+	animation: navslidefade .3s linear forwards;
+}
+@keyframes navslide{
+    0%{transform:translate(0,0);}
+    100%{transform:translate(100%,0);}
+}
+@keyframes navslidefade{
+    0%{transform:translate(0,0);}
+    100%{transform:translate(-100%,0);}
 }
