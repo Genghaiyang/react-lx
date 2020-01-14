@@ -1,9 +1,6 @@
 import React from "react"
 import '../assets/alert.less'
-class AlertBox extends React.Component {
-    /* handleClick(){
-        document.getElementById('alertBox').style='display:none'
-    } */
+/* class AlertBox extends React.Component {
     
     render() {
         return (
@@ -15,5 +12,18 @@ class AlertBox extends React.Component {
             </div>
         )
     }
+} */
+//编写无状态组件
+const AlertBox = (props) => {
+    
+        return (
+            <div id='alertBox' style={{display: props.isshow ? "block" : "none"}}>
+                <div className='box'>
+                <p className='title'>{props.title}</p>
+                <p className='btn' onClick={props.closeFun()}>确认</p>
+                </div>
+            </div>
+        )
+    
 }
 export default AlertBox

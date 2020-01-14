@@ -8,6 +8,11 @@ import AlertBox from '../component/AlertBox'
 import '../assets/app.less'
 
 class App extends React.Component {
+    constructor(props){
+        super(props)
+        this.handlesubmitClick = this.handlesubmitClick.bind(this)
+        this.alertFun = this.alertFun.bind(this)
+    }
 	handlesubmitClick() {
 		let state = this.props.state.appReducer
 		let alertTips = ''
@@ -116,14 +121,14 @@ class App extends React.Component {
 				</div>
 				<div
 					className="submitBtn"
-					onClick={this.handlesubmitClick.bind(this)}
+					onClick={this.handlesubmitClick}
 				>
 					提交
 				</div>
 				<AlertBox
 					title={state.alertBox.title}
 					isshow={state.alertBox.isshow}
-					closeFun={this.alertFun.bind(this)}
+					closeFun={this.alertFun}
 				/>
 			</div>
 		)

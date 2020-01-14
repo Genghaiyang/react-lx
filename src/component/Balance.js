@@ -10,7 +10,11 @@ class Balance extends React.Component {
 			allMoney: '100',
 			title: '',
 			isshow: false
-		}
+        }
+        this.checkInpnt = this.checkInpnt.bind(this)
+        this.alertFun = this.alertFun.bind(this)
+        this.handleChange = this.handleChange.bind(this)
+        this.input = React.createRef()
 	}
 	alertFun(e) {
 		return () => {
@@ -20,8 +24,9 @@ class Balance extends React.Component {
 		}
 	}
 	handleChange(e) {
-		// console.log(e.target.value)
-		let num = e.target.value
+		// refs 使用两种方式
+        // let num = this.refs.inputNum.value
+        let num = this.input.value
 		num > 200
 			? this.setState({ valueNum: '200.00' })
 			: this.setState({ valueNum: num })
@@ -56,19 +61,21 @@ class Balance extends React.Component {
 						<span>¥</span>
 						<input
 							type="text"
-							onChange={this.handleChange.bind(this)}
+							onChange={this.handleChange}
 							value={this.state.valueNum}
-							maxLength="5"
+                            maxLength="5"
+                            // ref="inputNum"
+                            ref={i => this.input = i}
 						/>
 					</p>
 				</div>
-				<p className="submitbtn" onClick={this.checkInpnt.bind(this)}>
+				<p className="submitbtn" onClick={this.checkInpnt}>
 					申请提现
 				</p>
 				<AlertBox
 					title={this.state.title}
 					isshow={this.state.isshow}
-					closeFun={this.alertFun.bind(this)}
+					closeFun={this.alertFun}
 				/>
 			</div>
 		)

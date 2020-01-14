@@ -15,9 +15,10 @@ class TopBar extends React.Component {
 			: this.setState({ isShow: !this.state.isShow })
 	}
 	animateDely = () => {
-		document
-			.getElementById('navPage')
-			.setAttribute('class', 'navPage navPage-hide')
+		/* document
+            .getElementById('navPage') 
+            this.refs.aside.setAttribute('class', 'navPage navPage-hide')*/
+            this.refs.aside.className = 'navPage navPage-hide'
 		window.setTimeout(() => {
 			this.setState({ isShow: !this.state.isShow })
 		}, 500)
@@ -36,7 +37,7 @@ class TopBar extends React.Component {
 					</Link>
 				)}
 				{this.state.isShow && (
-					<aside id="navPage" className="navPage navPage-show">
+					<aside id="navPage" ref="aside" className="navPage navPage-show">
 						<Link to="/123" replace exact className="link-line">
 							首页
 						</Link>

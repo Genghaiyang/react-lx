@@ -4,8 +4,8 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import TopBar from './TopBar'
 import actions from '../actions/actions'
-import '../assets/production.less'
-class Production extends React.Component {
+import '../assets/record.less'
+class Record extends React.Component {
 	/* constructor(props){
         super(props);
         this.handleSlectClick = this.handleSlectClick.bind(this)
@@ -73,4 +73,4 @@ const mapDispatchToProps = dispatch => ({
 	AddNumCount: bindActionCreators(actions.AddNumCount, dispatch),
 	PlusNumCount: bindActionCreators(actions.PlusNumCount, dispatch)
 })
-export default connect(mapStateToProps, mapDispatchToProps)(Production)
+export default connect(mapStateToProps, mapDispatchToProps)(Record)
